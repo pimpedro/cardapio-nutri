@@ -1,0 +1,53 @@
+.bookmarkWrap
+    container-type: inline-size
+    padding: 6px 6px
+  
+.bookmark
+    display: flex
+    overflow: hidden
+    border-radius: 2px
+    border: 1px solid #f1f1f1
+    height: 220px
+    transition: box-shadow .3s
+
+.bookmark:hover
+    box-shadow: 0 0 10px rgba(33,33,33,.1)
+
+.bookmark_imageWrap,
+.bookmark_content
+    flex: 1
+
+.bookmark_image
+    position: relative
+    background: #f9f9f9
+    width: 100%
+    aspect-ratio: 16/10
+    min-height: 100%
+    img
+        object-fit: cover
+
+
+.bookmark_text
+
+
+.bookmark_content
+    display: flex
+    flex-direction: column
+    padding:  16px
+
+
+@media screen and (max-width: 800px)
+  .bookmark
+        flex-direction: column
+        height: 300px
+
+
+@media screen and (max-width: 720px)
+  .bookmark
+        flex-direction: column
+        height: 220px
+
+@media screen and (max-width: 400px)
+  .bookmark
+        flex-direction: column
+        height: 200px
