@@ -28,9 +28,7 @@ const Header = ({nutritionistName, cupomCode, nutritionistImage}) => {
             <p>Quer encontrar produtos das melhores marcas em um só lugar? A Trela te ajuda a comprar alimentos de qualidade para ter uma vida mais equilibrada e comer bem em todas as suas refeições. Eles ainda garantem os melhores preços do mercado e a entrega é sempre grátis.</p>
             {/* <p><strong>Ganhe 20% OFF </strong> na primeira compra usando meu cupom: <strong>{cupomCode}</strong>.</p> */}
             </div> 
-            <div className={styles.banner}>
-              <span className={styles.bannerWrap}><strong>Ganhe 20% OFF </strong> na primeira compra usando meu cupom: <strong>{cupomCode}</strong>.</span>
-            </div>
+            
         </div>
     </header>
     
