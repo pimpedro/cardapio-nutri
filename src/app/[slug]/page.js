@@ -6,7 +6,7 @@ import Cover from "@/components/cover/cover";
 import TopBanner from "@/components/banner/top-banner";
 
 const NuticionistList = async (props) => {
-  const productLinks = await fetchProducts(`product-links?populate=*&filters[nutritionists][slug][$eq]=${props.params.slug}&pagination[pageSize]=100`)
+  const productLinks = await fetchProducts(`product-links?populate=*&filters[nutritionists][slug][$eq]=${props.params.slug}&pagination[pageSize]=300`)
   const nutricionist = await fetchProducts(`nutritionists?populate=*&filters[slug][$eq]=${props.params.slug}`)
   const categories = await fetchProducts(`categories?populate=*&pagination[pageSize]=300`)
   // console.log(nutricionist.data[0].attributes.profile_image.data.attributes.url)
