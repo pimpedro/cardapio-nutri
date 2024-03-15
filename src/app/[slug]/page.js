@@ -8,10 +8,10 @@ import TopBanner from "@/components/banner/top-banner";
 const NuticionistList = async (props) => {
   const productLinks = await fetchProducts(`product-links?pagination[pageSize]=300&populate=*&filters[nutritionists][slug][$eq]=${props.params.slug}`)
   const nutricionist = await fetchProducts(`nutritionists?populate=*&filters[slug][$eq]=${props.params.slug}`)
-  const categories = await fetchProducts(`categories?populate=*&pagination[pageSize]=30`)
-  console.log(nutricionist.data[0].attributes.profile_image.data.attributes.url)
+  const categories = await fetchProducts(`categories?populate=*&sort[0]=position:asc&pagination[pageSize]=30`)
+  console.log(categories)
 
-  console.log(productLinks)
+  // console.log(productLinks)
 
   return(
   <div>
