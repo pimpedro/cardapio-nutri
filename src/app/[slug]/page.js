@@ -9,15 +9,15 @@ const NuticionistList = async (props) => {
   const productLinks = await fetchProducts(`product-links?pagination[pageSize]=300&populate=*&filters[nutritionists][slug][$eq]=${props.params.slug}`)
   const nutricionist = await fetchProducts(`nutritionists?populate=*&filters[slug][$eq]=${props.params.slug}`)
   const categories = await fetchProducts(`categories?populate=*&sort[0]=position:asc&pagination[pageSize]=30`)
-  console.log(categories)
+  // console.log(categories)
 
   // console.log(productLinks)
 
   return(
-  <div>
+  <div >
     <TopBanner cupomCode={nutricionist.data[0].attributes.cupomcode}/>
     <Cover/>
-    <div className="container">
+    <div className="container pb-60">
     <Header nutritionistName={nutricionist.data[0].attributes.Name} 
     nutritionistImage={nutricionist.data[0].attributes.profile_image.data.attributes.url}
     ></Header>
