@@ -4,7 +4,7 @@ import styles from './bookmark.module.sass';
 import Link from 'next/link'
 import Image from 'next/image';
 
-function BookmarkReader({url}) {
+function BookmarkReader({url, nutriSlug}) {
   const [openGraphData, setOpenGraphData] = useState(null);
 
     const urlprops = url
@@ -24,11 +24,13 @@ function BookmarkReader({url}) {
     fetchOpenGraphData();
   }, []);
 
+
   return (
     <div className={`${styles.bookmarkWrap} col_2`}>
       <div className={`${styles.bookmark}`}>
       {openGraphData && (
-        <Link href={`${urlprops}`} rel="noopener noreferrer" target="_blank">
+        <Link href={`${urlprops.trim()}?utm_medium=referral&utm_source=pagnutri&utm_campaign=nutris&utm_content=${nutriSlug.trim()}`} 
+        rel="noopener noreferrer" target="_blank">
           <div className={`${styles.bookmark_imageWrap}`}>
             <div className={styles.bookmark_image}>
               {openGraphData.image ? <Image src={openGraphData.image} alt={openGraphData.title} fill={true}/> : <p>imagem</p>}
@@ -36,7 +38,6 @@ function BookmarkReader({url}) {
           </div>
           <div className={styles.bookmark_content}>
             <h3>{openGraphData.title}</h3>
-            {/* <p className={styles.bookmark_text}>{openGraphData.description}</p> */}
           </div>
           
         </Link>

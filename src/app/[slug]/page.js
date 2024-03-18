@@ -33,7 +33,7 @@ const NuticionistList = async (props) => {
                   {productLinks.data.filter(product => product && product.attributes && product.attributes.category && product.attributes.category.data&& product.attributes.category.data.attributes && product.attributes.category.data.attributes && product.attributes.category.data.attributes && product.attributes.category.data.attributes.name === `${category.attributes.name}`).map((productLink, index)=> 
                   {
                     return (
-                        <BookmarkReader key={index} url={`${productLink.attributes.url}`} />
+                        <BookmarkReader key={index} url={`${productLink.attributes.url} `} nutriSlug={nutricionist.data[0].attributes.slug} />
                       
                     )
                   }
