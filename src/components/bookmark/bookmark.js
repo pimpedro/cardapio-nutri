@@ -24,8 +24,8 @@ function BookmarkReader({url, nutriSlug}) {
     fetchOpenGraphData();
   }, []);
 
-  if(openGraphData.title != "undefined | Trela")
-  {return (
+  
+  return (
     <div className={`${styles.bookmarkWrap} col_2`}>
       <div className={`${styles.bookmark}`}>
       {openGraphData && (
@@ -45,7 +45,7 @@ function BookmarkReader({url, nutriSlug}) {
       )}
       </div>
       </div>
-  )};
+  );
 }
 
 export default BookmarkReader;
