@@ -24,27 +24,28 @@ function BookmarkReader({url, nutriSlug}) {
     fetchOpenGraphData();
   }, []);
 
-  
+
   return (
     <div className={`${styles.bookmarkWrap} col_2`}>
-      <div className={`${styles.bookmark}`}>
-      {openGraphData && (
-        <Link href={`${urlprops.trim()}?utm_medium=referral&utm_source=pagnutri&utm_campaign=nutris&utm_content=${nutriSlug.trim()}`} 
-        rel="noopener noreferrer" target="_blank">
-          <div className={`${styles.bookmark_imageWrap}`}>
-            <div className={styles.bookmark_image}>
-              {openGraphData.image ? <Image src={openGraphData.image} alt={openGraphData.title} fill={true}/> : <p>imagem</p>}
+      <div className={styles.bookmark}>
+        {openGraphData && (
+          <Link
+            href={`${urlprops.trim()}?utm_medium=referral&utm_source=pagnutri&utm_campaign=nutris&utm_content=${nutriSlug.trim()}`}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <div className={styles.bookmark_imageWrap}>
+              <div className={styles.bookmark_image}>
+                <Image src={openGraphData.image} alt={openGraphData.title} fill={true}/>
+              </div>
             </div>
-          </div>
-          <div className={styles.bookmark_content}>
-            <h3>{openGraphData.title}</h3>
-          </div>
-          
-        </Link>
-        
-      )}
+            <div className={styles.bookmark_content}>
+              <h3>{openGraphData.title}</h3>
+            </div>
+          </Link>
+        )}
       </div>
-      </div>
+    </div>
   );
 }
 
