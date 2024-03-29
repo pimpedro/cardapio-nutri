@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { useEffect, useState } from 'react';
 import styles from './bookmark.module.sass';
 import Link from 'next/link';
@@ -10,7 +10,9 @@ function BookmarkReader({ url, nutriSlug }) {
   useEffect(() => {
     const fetchOpenGraphData = async () => {
       try {
-        const response = await fetch(`/api/opengraph?url=${encodeURIComponent(url)}`);
+        const response = await fetch(
+          `/api/opengraph?url=${encodeURIComponent(url)}`
+        );
         if (!response.ok) {
           throw new Error('Failed to fetch OpenGraph data');
         }
@@ -24,7 +26,11 @@ function BookmarkReader({ url, nutriSlug }) {
     fetchOpenGraphData();
   }, [url]);
 
-  if (!openGraphData || !openGraphData.title || openGraphData.title === "undefined | Trela") {
+  if (
+    !openGraphData ||
+    !openGraphData.title ||
+    openGraphData.title === 'undefined | Trela'
+  ) {
     return null; // Render nothing if data is not available or has invalid title
   }
 
@@ -33,12 +39,17 @@ function BookmarkReader({ url, nutriSlug }) {
       <div className={styles.bookmark}>
         <Link
           href={`${url.trim()}?utm_medium=referral&utm_source=pagnutri&utm_campaign=nutris&utm_content=${nutriSlug.trim()}`}
-          rel="noopener noreferrer"
-          target="_blank"
+          rel='noopener noreferrer'
+          target='_blank'
         >
           <div className={styles.bookmark_imageWrap}>
             <div className={styles.bookmark_image}>
-              <Image src={openGraphData.image} alt={openGraphData.title} fill={true} />
+              <Image
+                src={openGraphData.image}
+                alt={openGraphData.title}
+                fill={true}
+                sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+              />
             </div>
           </div>
           <div className={styles.bookmark_content}>
