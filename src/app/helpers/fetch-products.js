@@ -1,15 +1,15 @@
-import config from "@/config"
+import config from '@/config';
 
 const fetchProducts = async (params) => {
-    const reqOptions ={
-      headers: {
-        Authorization: `Bearer ${process.env.API_TOKEN}`
-      }
-    }
-    const request = await fetch(`${config.api}/api/${params}`, reqOptions)
-    const response = await request.json()
-  
-    return response
-  }
+  const reqOptions = {
+    headers: {
+      Authorization: `Bearer ${process.env.API_TOKEN}`,
+    },
+  };
+  const request = await fetch(`${config.api}/api/${params}`, reqOptions);
+  const response = await request.json();
 
-  export default fetchProducts
+  return response;
+};
+
+export default fetchProducts;

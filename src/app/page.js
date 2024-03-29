@@ -1,17 +1,30 @@
-
-import Link from "next/link"
-import fetchProducts from "./helpers/fetch-products";
-
+import Link from 'next/link';
+import fetchProducts from './helpers/fetch-products';
 
 const Home = async () => {
-  const nutricionist = await fetchProducts('nutritionists?filters[active][$eq]=true')
-  return(
-  <div className="container"> 
-    <ul>
-      {nutricionist.data.map((nutricionist, id)=> <li key={id}> <Link href={`/${nutricionist.attributes.slug}`}> {nutricionist.attributes.Name} </Link> </li>)}
-    </ul>
-  </div>
-  )
-  };
+  const nutricionist = await fetchProducts(
+    'nutritionists?filters[active][$eq]=true',
+    {
+      next: {
+        revalidate: 86.4,
+      },
+    }
+  );
+  return (
+    <div className='container'>
+      <ul>
+        {nutricionist.data.map((nutricionist, id) => (
+          <li key={id}>
+            {' '}
+            <Link href={`/${nutricionist.attributes.slug}`}>
+              {' '}
+              {nutricionist.attributes.Name}{' '}
+            </Link>{' '}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
-export default Home
+export default Home;

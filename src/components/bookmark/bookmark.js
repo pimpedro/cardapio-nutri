@@ -11,7 +11,8 @@ function BookmarkReader({ url, nutriSlug }) {
     const fetchOpenGraphData = async () => {
       try {
         const response = await fetch(
-          `/api/opengraph?url=${encodeURIComponent(url)}`
+          `/api/opengraph?url=${encodeURIComponent(url)}`,
+          { cache: 'force-cache' }
         );
         if (!response.ok) {
           throw new Error('Failed to fetch OpenGraph data');
