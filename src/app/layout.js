@@ -9,9 +9,9 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
-export const metadata = {
-  title: 'Nutri & Trela',
-};
+// export const metadata = {
+//   title: 'Nutri & Trela 2',
+// };
 
 const RootLayout = ({ children }) => {
   return (
