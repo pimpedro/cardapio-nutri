@@ -24,7 +24,7 @@ export function generateMetadata({ params }) {
 const NuticionistList = async (props) => {
   const [productLinks, nutricionist, categories] = await Promise.all([
     fetchProducts(
-      `product-links?pagination[pageSize]=500&populate=*&filters[nutritionists][slug][$eq]=${props.params.slug}&sort[1]=url:asc`,
+      `product-links?pagination[pageSize]=800&populate=*&filters[nutritionists][slug][$eq]=${props.params.slug}&sort[1]=url:asc`,
       {
         next: {
           revalidate: 8640,
@@ -35,7 +35,7 @@ const NuticionistList = async (props) => {
       `nutritionists?populate=*&filters[slug][$eq]=${props.params.slug}`,
       {
         next: {
-          revalidate: 86400,
+          revalidate: 8640,
         },
       }
     ),
@@ -43,7 +43,7 @@ const NuticionistList = async (props) => {
       `categories?populate=*&sort[0]=position:asc&pagination[pageSize]=30`,
       {
         next: {
-          revalidate: 86400,
+          revalidate: 8640,
         },
       }
     ),
