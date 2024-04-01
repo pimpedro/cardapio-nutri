@@ -4,7 +4,6 @@ import Header from '@/components/header';
 import styles from './page.module.sass';
 import Cover from '@/components/cover/cover';
 import TopBanner from '@/components/banner/top-banner';
-import Head from 'next/head';
 
 // export const metadata = {
 //   title:
@@ -28,7 +27,7 @@ const NuticionistList = async (props) => {
       `product-links?pagination[pageSize]=500&populate=*&filters[nutritionists][slug][$eq]=${props.params.slug}&sort[1]=url:asc`,
       {
         next: {
-          revalidate: 86400,
+          revalidate: 8640,
         },
       }
     ),
