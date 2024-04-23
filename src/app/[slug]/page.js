@@ -65,6 +65,9 @@ const NuticionistList = async (props) => {
               nutricionistData[0]?.attributes.profile_image?.data?.attributes
                 ?.url
             }
+            nutritionistDescription={
+              nutricionistData[0]?.attributes.description
+            }
           />
           {categoriesData.map((category, index) => {
             const productsInCategory = productLinksData.filter(
