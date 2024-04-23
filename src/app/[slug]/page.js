@@ -24,28 +24,28 @@ export function generateMetadata({ params }) {
 const NuticionistList = async (props) => {
   const [productLinks, nutricionist, categories] = await Promise.all([
     fetchProducts(
-      `product-links?pagination[pageSize]=800&populate=*&filters[nutritionists][slug][$eq]=${props.params.slug}&sort[1]=url:asc`
-      // {
-      //   next: {
-      //     revalidate: 8640,
-      //   },
-      // }
+      `product-links?pagination[pageSize]=800&populate=*&filters[nutritionists][slug][$eq]=${props.params.slug}&sort[1]=url:asc`,
+      {
+        next: {
+          revalidate: 300,
+        },
+      }
     ),
     fetchProducts(
-      `nutritionists?populate=*&filters[slug][$eq]=${props.params.slug}`
-      // {
-      //   next: {
-      //     revalidate: 8640,
-      //   },
-      // }
+      `nutritionists?populate=*&filters[slug][$eq]=${props.params.slug}`,
+      {
+        next: {
+          revalidate: 300,
+        },
+      }
     ),
     fetchProducts(
-      `categories?populate=*&sort[0]=position:asc&pagination[pageSize]=30`
-      // {
-      //   next: {
-      //     revalidate: 8640,
-      //   },
-      // }
+      `categories?populate=*&sort[0]=position:asc&pagination[pageSize]=30`,
+      {
+        next: {
+          revalidate: 300,
+        },
+      }
     ),
   ]);
 
