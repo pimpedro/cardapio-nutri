@@ -3,7 +3,8 @@ import fetchProducts from './helpers/fetch-products';
 
 const Home = async () => {
   const nutricionist = await fetchProducts(
-    'nutritionists?filters[active][$eq]=true'
+    'nutritionists?filters[active][$eq]=true',
+    { cache: 'no-store' }
     // {
     //   next: {
     //     revalidate: 300,
