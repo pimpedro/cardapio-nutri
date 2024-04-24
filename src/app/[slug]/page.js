@@ -18,32 +18,27 @@ const NuticionistList = async (props) => {
   const [productLinks, nutricionist, categories] = await Promise.all([
     fetchProducts(
       `product-links?pagination[pageSize]=800&populate=*&filters[nutritionists][slug][$eq]=${props.params.slug}&sort[1]=url:asc`,
-      { cache: 'no-store' }
-
-      // {
-      //   next: {
-      //     revalidate: 300,
-      //   },
-      // }
+      {
+        next: {
+          revalidate: 300,
+        },
+      }
     ),
     fetchProducts(
       `nutritionists?populate=*&filters[slug][$eq]=${props.params.slug}`,
-      { cache: 'no-store' }
-
-      // {
-      //   next: {
-      //     revalidate: 300,
-      //   },
-      // }
+      {
+        next: {
+          revalidate: 300,
+        },
+      }
     ),
     fetchProducts(
       `categories?populate=[categories]&filters[nutritionists][slug][$eq]=${props.params.slug}&sort[0]=position:asc&pagination[pageSize]=30`,
-      { cache: 'no-store' }
-      // {
-      //   next: {
-      //     revalidate: 300,
-      //   },
-      // }
+      {
+        next: {
+          revalidate: 300,
+        },
+      }
     ),
   ]);
 
