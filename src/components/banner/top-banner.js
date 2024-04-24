@@ -1,11 +1,16 @@
 import styles from './top-banner.module.sass';
 
-function TopBanner({cupomCode}) {
+function TopBanner({ cupomCode, discount }) {
+  console.log(discount);
   return (
     <div className={styles.bannerWrap}>
-        <span className={styles.bannerContent}> 20% OFF  na primeira compra usando meu cupom: {cupomCode} </span>
+      <span className={styles.bannerContent}>
+        {' '}
+        {discount !== null ? discount : '25%'} na primeira compra usando meu
+        cupom: {cupomCode}{' '}
+      </span>
     </div>
-  )
+  );
 }
 
-export default TopBanner
+export default TopBanner;

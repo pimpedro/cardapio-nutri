@@ -39,7 +39,6 @@ const NuticionistList = async (props) => {
     fetchProducts(
       `categories?populate=[categories]&filters[nutritionists][slug][$eq]=${props.params.slug}&sort[0]=position:asc&pagination[pageSize]=30`,
       { cache: 'no-store' }
-      // https://renowned-sunrise-2d8e4a6fb3.strapiapp.com/api/categories?populate=[categories]&filters[nutritionists][slug][$eq]=isabel-vieira
       // {
       //   next: {
       //     revalidate: 300,
@@ -55,7 +54,10 @@ const NuticionistList = async (props) => {
   return (
     <>
       <div>
-        <TopBanner cupomCode={nutricionistData[0]?.attributes.cupomcode} />
+        <TopBanner
+          cupomCode={nutricionistData[0]?.attributes.cupomcode}
+          discount={nutricionistData[0]?.attributes.discount}
+        />
         <Cover />
         <div className='container pb-60'>
           <Header
