@@ -7,6 +7,7 @@ const Header = ({
   nutritionistImage,
   nutritionistDescription,
 }) => {
+  console.log(nutritionistImage);
   return (
     <header>
       <div className={styles.profileImageWrap}>
@@ -19,16 +20,19 @@ const Header = ({
           />
         </div>
       </div>
-      <div className={styles.profileImageWrap}>
-        <div className={styles.profileImage_image}>
-          <Image
-            src={nutritionistImage}
-            fill={true}
-            alt='Foto de perfil'
-            sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-          />
+      {nutritionistImage !== undefined && (
+        <div className={styles.profileImageWrap}>
+          <div className={styles.profileImage_image}>
+            <Image
+              src={nutritionistImage}
+              fill={true}
+              alt='Foto de perfil'
+              sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+            />
+          </div>
         </div>
-      </div>
+      )}
+
       <div className={styles.contentWrap}>
         <div>
           <h1 className={styles.contentTitle}>

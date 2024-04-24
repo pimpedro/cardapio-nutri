@@ -25,6 +25,7 @@ const NuticionistList = async (props) => {
   const [productLinks, nutricionist, categories] = await Promise.all([
     fetchProducts(
       `product-links?pagination[pageSize]=800&populate=*&filters[nutritionists][slug][$eq]=${props.params.slug}&sort[1]=url:asc`
+
       // {
       //   next: {
       //     revalidate: 300,
@@ -33,6 +34,7 @@ const NuticionistList = async (props) => {
     ),
     fetchProducts(
       `nutritionists?populate=*&filters[slug][$eq]=${props.params.slug}`
+
       // {
       //   next: {
       //     revalidate: 300,
@@ -41,6 +43,7 @@ const NuticionistList = async (props) => {
     ),
     fetchProducts(
       `categories?populate=*&sort[0]=position:asc&pagination[pageSize]=30`
+
       // {
       //   next: {
       //     revalidate: 300,
@@ -70,12 +73,14 @@ const NuticionistList = async (props) => {
             }
           />
           {categoriesData.map((category, index) => {
-            const productsInCategory = productLinksData.filter(
-              (product) =>
-                product?.attributes?.category?.data?.attributes?.name ===
-                category.attributes.name
+            const productsInCategory = productLinksData.filter((product) =>
+              product?.attributes?.categories?.data.some(
+                (name) => name.attributes.name === category.attributes.name
+              )
             );
+            console.log(productsInCategory);
             if (productsInCategory.length > 0) {
+              console.log(category.attributes.name);
               return (
                 <div key={index}>
                   <h2 className={styles.category_header}>
