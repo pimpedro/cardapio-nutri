@@ -5,14 +5,7 @@ import styles from './page.module.sass';
 import Cover from '@/components/cover/cover';
 import TopBanner from '@/components/banner/top-banner';
 
-// export const metadata = {
-//   title:
-// };
-
 export function generateMetadata({ params }) {
-  // fetch data with `params`
-
-  // return a `Metadata` object
   return {
     title: `${params.slug
       .split('-')
@@ -24,7 +17,8 @@ export function generateMetadata({ params }) {
 const NuticionistList = async (props) => {
   const [productLinks, nutricionist, categories] = await Promise.all([
     fetchProducts(
-      `product-links?pagination[pageSize]=800&populate=*&filters[nutritionists][slug][$eq]=${props.params.slug}&sort[1]=url:asc`
+      `product-links?pagination[pageSize]=800&populate=*&filters[nutritionists][slug][$eq]=${props.params.slug}&sort[1]=url:asc`,
+      { cache: 'no-store' }
 
       // {
       //   next: {
@@ -33,7 +27,8 @@ const NuticionistList = async (props) => {
       // }
     ),
     fetchProducts(
-      `nutritionists?populate=*&filters[slug][$eq]=${props.params.slug}`
+      `nutritionists?populate=*&filters[slug][$eq]=${props.params.slug}`,
+      { cache: 'no-store' }
 
       // {
       //   next: {
@@ -42,7 +37,8 @@ const NuticionistList = async (props) => {
       // }
     ),
     fetchProducts(
-      `categories?populate=*&sort[0]=position:asc&pagination[pageSize]=30`
+      `categories?populate=*&sort[0]=position:asc&pagination[pageSize]=30`,
+      { cache: 'no-store' }
 
       // {
       //   next: {
