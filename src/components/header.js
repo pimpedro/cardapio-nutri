@@ -35,9 +35,7 @@ const Header = ({
 
       <div className={styles.contentWrap}>
         <div>
-          <h1 className={styles.contentTitle}>
-            {nutritionistName} e Trela <br /> Seleção de produtos favoritos
-          </h1>
+          <h1 className={styles.contentTitle}>{nutritionistName}</h1>
           <p>{nutritionistDescription}</p>
           {/* <p><strong>Ganhe 20% OFF </strong> na primeira compra usando meu cupom: <strong>{cupomCode}</strong>.</p> */}
         </div>
