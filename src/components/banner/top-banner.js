@@ -6,7 +6,7 @@ function TopBanner({ cupomCode, discount }) {
     <div className={styles.bannerWrap}>
       <span className={styles.bannerContent}>
         {' '}
-        {discount !== null ? discount : '25%'} na primeira compra usando meu
+        {discount !== null ? discount : '20%'} na primeira compra usando meu
         cupom: {cupomCode}{' '}
       </span>
     </div>
