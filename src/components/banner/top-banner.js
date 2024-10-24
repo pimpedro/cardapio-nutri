@@ -1,7 +1,7 @@
 import styles from './top-banner.module.sass';
 
 function TopBanner({ cupomCode, discount }) {
-  console.log(discount);
+  console.log("top-banner",cupomCode,discount);
   return (
     <div className={styles.bannerWrap}>
       <span className={styles.bannerContent}>

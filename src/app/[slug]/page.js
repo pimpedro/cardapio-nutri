@@ -10,7 +10,7 @@ export function generateMetadata({ params }) {
     title: `${params.slug
       .split('-')
       .map((e) => e[0].toUpperCase() + e.substring(1))
-      .join(' ')} & Trela`,
+      .join(' ')} & Trela`, 
   };
 }
 
@@ -41,7 +41,7 @@ const NuticionistList = async (props) => {
       }
     ),
   ]);
-
+  console.log("fetch", productLinks, nutricionist, categories)
   const productLinksData = productLinks.data || [];
   const nutricionistData = nutricionist.data || [];
   const categoriesData = categories.data || [];
